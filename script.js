@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const statusDiv = form.querySelector('.form-status');
         
         // Basic validation check for script URL
-        if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+        if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycbwtwPJI7AJpRFn4EGfQ-TNkfQTdMQU-2gibd3tOW2Az278cEB1sR3cS9tFJvn1zQ871/exec") {
             statusDiv.className = 'form-status status-error';
             statusDiv.textContent = 'Error: Google Apps Script URL not configured yet. Please follow the setup instructions.';
             return;
