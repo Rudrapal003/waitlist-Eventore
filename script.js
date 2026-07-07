@@ -47,13 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const submitBtn = form.querySelector('.submit-btn');
         const statusDiv = form.querySelector('.form-status');
-        
-        // Basic validation check for script URL
-        if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycbwtwPJI7AJpRFn4EGfQ-TNkfQTdMQU-2gibd3tOW2Az278cEB1sR3cS9tFJvn1zQ871/exec") {
-            statusDiv.className = 'form-status status-error';
-            statusDiv.textContent = 'Error: Google Apps Script URL not configured yet. Please follow the setup instructions.';
-            return;
-        }
 
         // Gather data
         const formData = new FormData(form);
@@ -69,23 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
         statusDiv.textContent = '';
 
         try {
-            const response = await fetch(SCRIPT_URL, {
+            // Google Apps Script enforces strict CORS on POST redirects. 
+            // 'no-cors' allows the request to fire successfully, but we cannot read the response.
+            await fetch(SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: JSON.stringify(data),
                 headers: {
-                    'Content-Type': 'text/plain;charset=utf-8', // Bypass CORS preflight
+                    'Content-Type': 'text/plain;charset=utf-8', 
                 }
             });
             
-            const result = await response.json();
+            // If fetch doesn't throw a network error, assume success in no-cors mode
+            statusDiv.className = 'form-status status-success';
+            statusDiv.textContent = 'Thank you! You have been added to the waitlist.';
+            form.reset();
             
-            if (result.result === 'success') {
-                statusDiv.className = 'form-status status-success';
-                statusDiv.textContent = 'Thank you! You have been added to the waitlist.';
-                form.reset();
-            } else {
-                throw new Error(result.error || 'Submission failed');
-            }
         } catch (error) {
             console.error('Error submitting form:', error);
             statusDiv.className = 'form-status status-error';
