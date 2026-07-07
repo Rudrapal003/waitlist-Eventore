@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventore | Every event deserves better</title>
+    <meta name="description" content="Join the Eventore waitlist. The premium two-sided marketplace where event planners discover, book, and pay vetted vendors.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="brand">Eventore</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="badge">Coming Soon to Vancouver</div>
+            <h1 class="hero-title">Every event<br>deserves better.</h1>
+            <p class="hero-subtitle">The first premium marketplace connecting top-tier event planners with vetted, reliable vendors. No more endless searching, scattered emails, or payment headaches.</p>
+            
+            <div class="cta-group">
+                <button class="btn btn-primary" id="btn-planner-waitlist">I'm a Planner</button>
+                <button class="btn btn-secondary" id="btn-vendor-waitlist">I'm a Vendor</button>
+            </div>
+        </div>
+        <!-- App Showcase Backgrounds -->
+        <div class="app-bg app-bg-left">
+            <img src="assets/map_vendor.png" alt="Map Vendor Feature">
+        </div>
+        <div class="app-bg app-bg-right">
+            <img src="assets/budget_planning.png" alt="Budget Planning Feature">
+        </div>
+        
+        <!-- Abstract decorative elements -->
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </header>
+
+    <!-- Features Showcase -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">The new standard for events</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Unified Discovery</h3>
+                    <p>Find venues, caterers, photographers, and DJs all in one curated map view. Filter by date, budget, and cultural expertise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Secure Messaging</h3>
+                    <p>Inquire, negotiate, and confirm details with built-in contact masking to protect your privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Escrow Payments</h3>
+                    <p>Pay deposits safely. Funds are held securely and released only after your event is successfully completed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Day-of Timeline</h3>
+                    <p>A collaborative, auto-updating schedule ensuring all vendors are synced and on-time for the big day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Modals -->
+    <div class="modal-overlay" id="planner-modal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h2>Planner Waitlist</h2>
+            <p class="modal-sub">Be the first to access our curated network of premium vendors.</p>
+            
+            <form id="planner-form" class="waitlist-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="p-firstname">First Name *</label>
+                        <input type="text" id="p-firstname" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-lastname">Last Name *</label>
+                        <input type="text" id="p-lastname" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="p-email">Email Address *</label>
+                    <input type="email" id="p-email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="p-ig">Instagram Handle <span class="opt">(Optional)</span></label>
+                        <input type="text" id="p-ig" name="instagram" placeholder="@username">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-yt">YouTube Handle <span class="opt">(Optional)</span></label>
+                        <input type="text" id="p-yt" name="youtube" placeholder="@channel">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How soon do you want to start using a planning platform? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="timeline" value="ASAP" required> ASAP</label>
+                        <label class="radio-label"><input type="radio" name="timeline" value="3 weeks"> In 3 weeks</label>
+                        <label class="radio-label"><input type="radio" name="timeline" value="6 weeks"> In 6 weeks</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Join Waitlist</button>
+                <div class="form-status"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="vendor-modal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h2>Vendor Waitlist</h2>
+            <p class="modal-sub">Get early access to qualified, high-budget leads and escrow protection.</p>
+            
+            <form id="vendor-form" class="waitlist-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="v-firstname">First Name *</label>
+                        <input type="text" id="v-firstname" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="v-lastname">Last Name *</label>
+                        <input type="text" id="v-lastname" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="v-bizname">Business Name *</label>
+                        <input type="text" id="v-bizname" name="businessName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="v-email">Email Address *</label>
+                    <input type="email" id="v-email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="v-biztype">Vendor Type *</label>
+                        <select id="v-biztype" name="businessType" required>
+                            <option value="" disabled selected>Select category...</option>
+                            <option value="Venue">Venue</option>
+                            <option value="Caterer">Caterer</option>
+                            <option value="Photographer">Photographer</option>
+                            <option value="Videographer">Videographer</option>
+                            <option value="DJ/Music">DJ / Music</option>
+                            <option value="Decor/Florals">Decor / Florals</option>
+                            <option value="Beauty/Makeup">Beauty / Makeup</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="v-ig">Instagram Handle <span class="opt">(Optional)</span></label>
+                        <input type="text" id="v-ig" name="instagram" placeholder="@username">
+                    </div>
+                    <div class="form-group">
+                        <label for="v-yt">YouTube Handle <span class="opt">(Optional)</span></label>
+                        <input type="text" id="v-yt" name="youtube" placeholder="@channel">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How soon do you want to start using a planning platform? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="timeline" value="ASAP" required> ASAP</label>
+                        <label class="radio-label"><input type="radio" name="timeline" value="3 weeks"> In 3 weeks</label>
+                        <label class="radio-label"><input type="radio" name="timeline" value="6 weeks"> In 6 weeks</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary submit-btn">Join Waitlist</button>
+                <div class="form-status"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Eventore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
