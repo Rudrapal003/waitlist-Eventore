@@ -441,6 +441,30 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+    .hero-content {
+        padding: 40px 20px;
+        border-radius: 20px;
+        background: rgba(10, 10, 10, 0.35); /* More transparent on mobile */
+    }
+    .hero-title {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+    .app-bg {
+        opacity: 0.3; /* Show on mobile but keep it subtle */
+    }
+    .app-bg-left {
+        width: 350px;
+        top: 10px;
+        left: -100px;
+    }
+    .app-bg-right {
+        width: 300px;
+        bottom: -10px;
+        right: -80px;
+    }
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -448,5 +472,8 @@ footer {
     .modal-content {
         padding: 30px 20px;
         width: 90%;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
 }
